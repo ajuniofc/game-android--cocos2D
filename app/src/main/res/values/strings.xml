@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GameCocos2D</string>
+
+    <string name="game_over">Game Over</string>
 </resources>
