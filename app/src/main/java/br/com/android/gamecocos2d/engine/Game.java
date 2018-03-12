@@ -1,6 +1,7 @@
 package br.com.android.gamecocos2d.engine;
 
 import android.content.Context;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -47,7 +48,10 @@ public class Game extends SurfaceView implements Runnable {
 
             // bloqueia o canvas
             Canvas canvas = holder.lockCanvas();
-            canvas.drawColor(Color.BLACK);
+
+            // desenha background
+            canvas.drawBitmap(BitmapFactory.decodeResource(getResources(),
+                    R.drawable.sky), 0, 0, null);
 
             // desenha o player
             drawPlayer(canvas);
@@ -73,7 +77,8 @@ public class Game extends SurfaceView implements Runnable {
 
     private void drawPlayer(Canvas canvas) {
         paint.setColor(Color.GREEN);
-        canvas.drawCircle(playerX, playerY, playerRadius, paint);
+        canvas.drawBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.nave),
+                playerX - 50, playerY - 50, null);
     }
 
     private void drawEnemy(Canvas canvas){
